@@ -14,7 +14,7 @@ dag = DAG(
 	dag_id="party_animals",
 	description="DAG fo Party Animals' ETL",
 	schedule_interval="@hourly",
-	start_date=datetime(2023, 11, 18),
+	start_date=datetime(2023, 11, 20),
 )
 
 fetch_chart_data = PythonOperator(

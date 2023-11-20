@@ -33,10 +33,7 @@ def standardize_date(date_str):
 		return None
 
 def transformReviewData():
-	dags_dir = "../rekdat/dags/"
-	df = pd.read_csv(dags_dir + "extract/review_data.csv")
-
-	print(df)
+	df = pd.read_csv("extract/review_data.csv")
 
 	# change is_recommended to boolean
 	df['is_recommended'] = df['is_recommended'].replace({'Not Recommended': 0, 'Recommended': 1})
@@ -51,4 +48,4 @@ def transformReviewData():
 	df['date'] = df['date'].apply(standardize_date)
 	df = df.rename(columns={'date': 'timestamp'})
 
-	df.to_csv(dags_dir + "transform/transformed_review_data.csv", index=False)
+	df.to_csv("transform/transformed_review_data.csv", index=False)

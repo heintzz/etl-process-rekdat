@@ -10,18 +10,14 @@ db_params = {
 	'password': 'hasnan123'
 }
 
-table_name = 'charts'
-
 def loadRawData():
-	dags_dir = "../rekdat/dags/"
-
 	try:
 		conn = psycopg2.connect(**db_params)
 		print("connected to the database")
 
 		engine = create_engine(f'postgresql+psycopg2://{db_params["user"]}:{db_params["password"]}@{db_params["host"]}:{db_params["port"]}/{db_params["dbname"]}')
-		chart_df = pd.read_csv(dags_dir + "transform/transformed_chart_data.csv")
-		review_df = pd.read_csv(dags_dir + "transform/transformed_review_data.csv")
+		chart_df = pd.read_csv("transform/transformed_chart_data.csv")
+		review_df = pd.read_csv("transform/transformed_review_data.csv")
 
 		chart_df.to_sql('charts', engine, if_exists="replace", index=False)
 		review_df.to_sql('reviews', engine, if_exists="replace", index=False)

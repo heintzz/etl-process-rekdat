@@ -15,7 +15,7 @@ def getChartData():
 	else:
 	    print("Gagal mengambil data. Kode status:", response.status_code)
 
-	output_dir = '../rekdat/dags/extract/chart_data.csv'
+	output_dir = 'extract/chart_data.csv'
 
 	prev_data = pd.read_csv(output_dir)
 	new_data = pd.DataFrame(data, columns=['timestamp', 'count_active_player'])

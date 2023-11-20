@@ -74,12 +74,12 @@ def getReviewData():
 			break
 		previous_height = new_height
 
-	output_dir = "../rekdat/dags/extract/chart_data.csv"
+	output_dir = "extract/review_data.csv"
 
 	prev_data =  pd.read_csv(output_dir)
 	new_data = pd.DataFrame.from_dict(comment_arr, orient="columns")
 
-	combined_data = pd.concat([new_data]).drop_duplicates(subset=['date', 'review'], keep='last')
+	combined_data = pd.concat([new_data, prev_data]).drop_duplicates(subset=['date', 'review'], keep='last')
 
 	combined_data.to_csv(output_dir, index=False)
 
