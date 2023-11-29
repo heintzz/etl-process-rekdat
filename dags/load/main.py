@@ -16,8 +16,8 @@ def loadRawData():
 		print("connected to the database")
 
 		engine = create_engine(f'postgresql+psycopg2://{db_params["user"]}:{db_params["password"]}@{db_params["host"]}:{db_params["port"]}/{db_params["dbname"]}')
-		chart_df = pd.read_csv("transform/transformed_chart_data.csv")
-		review_df = pd.read_csv("transform/transformed_review_data.csv")
+		chart_df = pd.read_csv("/home/rekayasadata/rekdat/dags/transform/transformed_chart_data.csv")
+		review_df = pd.read_csv("/home/rekayasadata/rekdat/dags/transform/transformed_review_data.csv")
 
 		chart_df.to_sql('charts', engine, if_exists="replace", index=False)
 		review_df.to_sql('reviews', engine, if_exists="replace", index=False)

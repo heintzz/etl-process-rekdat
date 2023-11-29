@@ -74,7 +74,7 @@ def getReviewData():
 			break
 		previous_height = new_height
 
-	output_dir = "extract/review_data.csv"
+	output_dir = "/home/rekayasadata/rekdat/dags/extract/review_data.csv"
 
 	prev_data =  pd.read_csv(output_dir)
 	new_data = pd.DataFrame.from_dict(comment_arr, orient="columns")

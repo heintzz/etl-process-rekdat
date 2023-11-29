@@ -13,8 +13,8 @@ from load.secondary import loadCombinedData
 dag = DAG(
 	dag_id="party_animals",
 	description="DAG fo Party Animals' ETL",
-	schedule_interval="@hourly",
-	start_date=datetime(2023, 11, 20),
+	schedule_interval="@daily",
+	start_date=datetime(2023, 11, 29)
 )
 
 fetch_chart_data = PythonOperator(
